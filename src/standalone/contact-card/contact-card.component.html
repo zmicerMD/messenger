@@ -1,1 +1,8 @@
-<p>contact-card works!</p>
+<ng-container *ngIf="cardsData">
+  <div>
+    <div *ngIf="avatar" [style.background-image]="'url('+cardsData.icon+')'"></div>
+    <span *ngIf="!avatar">{{ avatarAlt }}</span>
+  </div>
+  <p>last seen:<span>{{ cardsData.lastSeen }}</span></p>
+</ng-container>
+
