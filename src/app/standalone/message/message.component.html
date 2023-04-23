@@ -1,0 +1,11 @@
+<p *ngIf="!isEditing else edit" (click)="isEditing = true">{{ message }}</p>
+<ng-template #edit>
+  <div class="flex items-center">
+    <mat-form-field subscriptSizing="dynamic">
+      <input matInput #text type="text" [value]="message">
+      <mat-icon *ngIf="text.value" (click)="text.value = ''" matIconSuffix>clear</mat-icon>
+    </mat-form-field>
+    <mat-icon (click)="message=text.value; isEditing = false; ">check</mat-icon>
+    <mat-icon (click)="isEditing = false">close</mat-icon>
+  </div>
+</ng-template>

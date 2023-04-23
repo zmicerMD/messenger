@@ -4,7 +4,12 @@ module.exports = {
     "./src/**/*.{html,ts,scss}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      height: {
+        'header-height': 'var(--header-height)',
+        'main-height': 'calc(100% - var(--header-height))',
+      }
+    },
   },
   plugins: [],
 }
