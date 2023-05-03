@@ -1,7 +1,8 @@
-import {Component, Renderer2, ViewChild} from '@angular/core';
-import {FormControl, FormGroup} from "@angular/forms";
-import {AdDirective} from "../../../../directives/ad.directive";
-import {MessageComponent} from "../../../../standalone/message/message.component";
+import { Component, Renderer2, ViewChild } from '@angular/core';
+import { FormControl, FormGroup } from "@angular/forms";
+import { AdDirective } from "../../../../directives/ad.directive";
+import { MessageComponent } from "../../../../standalone/message/message.component";
+
 
 export interface AdComponent {
   data: any;
@@ -13,7 +14,7 @@ export interface AdComponent {
   styleUrls: ['./messenger-page.component.scss']
 })
 export class MessengerPageComponent {
-  @ViewChild(AdDirective, {static: true}) adHost!: AdDirective;
+  @ViewChild(AdDirective, { static: true }) adHost!: AdDirective;
 
   messageForm = new FormGroup({
       text: new FormControl('')
@@ -37,6 +38,19 @@ export class MessengerPageComponent {
   submit() {
     console.log(this.messageForm.value.text);
     this.addComponent();
-    this.messageForm.reset();
+    this.messageForm.value.text = '';
+    this.messageForm.reset(this.messageForm.value);
+  }
+
+
+  onKeyDown(event: KeyboardEvent, form: HTMLFormElement) {
+    if (event.code === 'Enter') {
+      if (!event.ctrlKey) {
+        this.submit();
+      } else {
+        this.messageForm.value.text += '\n';
+        this.messageForm.reset(this.messageForm.value);
+      }
+    }
   }
 }

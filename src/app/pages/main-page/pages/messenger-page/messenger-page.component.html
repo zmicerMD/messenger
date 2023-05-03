@@ -4,11 +4,18 @@
     <ng-template adHost></ng-template>
   </div>
 
-  <div class="flex justify-end h-20 bg-white">
-    <form [formGroup]="messageForm" (submit)="submit()">
-      <mat-form-field>
-        <input matInput type="text" formControlName="text">
-      </mat-form-field>
-    </form>
-  </div>
+
+  <form #form [formGroup]="messageForm" (submit)="submit()" class="w-full">
+    <mat-form-field subscriptSizing="dynamic" class="w-full bg-white">
+        <textarea
+          matInput
+          rows="5" cols="40" placeholder="text"
+          formControlName="text"
+          (keydown)="onKeyDown($event, form)"
+          class="w-full"
+        >
+        </textarea>
+    </mat-form-field>
+  </form>
+
 </div>

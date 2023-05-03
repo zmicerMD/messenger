@@ -1,8 +1,15 @@
-<p *ngIf="!isEditing else edit" (click)="isEditing = true">{{ message }}</p>
+<pre *ngIf="!isEditing else edit" (click)="isEditing = true">{{ message }}</pre>
 <ng-template #edit>
   <div class="flex items-center">
-    <mat-form-field subscriptSizing="dynamic">
-      <input matInput #text type="text" [value]="message">
+    <mat-form-field>
+      <textarea
+        matInput
+        #text
+        type="text"
+        [value]="message"
+        cdkTextareaAutosize
+        class="!overflow-hidden"
+      ></textarea>
       <mat-icon *ngIf="text.value" (click)="text.value = ''" matIconSuffix>clear</mat-icon>
     </mat-form-field>
     <mat-icon (click)="message=text.value; isEditing = false; ">check</mat-icon>
