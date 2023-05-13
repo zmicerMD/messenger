@@ -1,8 +1,11 @@
-<ng-container *ngIf="cardsData">
+<div *ngIf="cardsData" class="flex items-center">
   <div>
     <div *ngIf="avatar" [style.background-image]="'url('+cardsData.icon+')'"></div>
-    <span *ngIf="!avatar">{{ avatarAlt }}</span>
+    <mat-icon *ngIf="!avatar" inline="true" style="font-size: 40px">account_circle</mat-icon>
   </div>
-  <p>last seen:<span>{{ cardsData.lastSeen }}</span></p>
-</ng-container>
+  <div>
+    <p>{{ cardsData.name }}</p>
+    <p>last seen:<span>{{ lastSeen }}</span></p>
+  </div>
+</div>
 

@@ -1,5 +1,7 @@
 <mat-sidenav-container class="!fixed inset-0">
-  <mat-sidenav #sidenav opened mode="side" class="w-72 bg-amber-100"></mat-sidenav>
+  <mat-sidenav #sidenav opened mode="side" class="w-72 bg-amber-100">
+    <app-left-panel></app-left-panel>
+  </mat-sidenav>
   <mat-sidenav-content class="h-full bg-amber-200">
     <header class="sticky top-0 h-header-height bg-amber-800" (click)="sidenav.toggle()"></header>
     <main class="h-main-height">

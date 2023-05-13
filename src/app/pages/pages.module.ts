@@ -9,6 +9,8 @@ import {MatInputModule} from "@angular/material/input";
 import {ReactiveFormsModule} from "@angular/forms";
 import {MessageComponent} from "../standalone/message/message.component";
 import {AdDirective} from "../directives/ad.directive";
+import { LeftPanelComponent } from './main-page/components/left-panel/left-panel.component';
+import { ContactCardComponent } from '../standalone/contact-card/contact-card.component';
 
 
 
@@ -16,7 +18,8 @@ import {AdDirective} from "../directives/ad.directive";
   declarations: [
     MainPageComponent,
     MessengerPageComponent,
-    AdDirective
+    AdDirective,
+    LeftPanelComponent
   ],
   imports: [
     CommonModule,
@@ -25,6 +28,7 @@ import {AdDirective} from "../directives/ad.directive";
     MatInputModule,
     ReactiveFormsModule,
     MessageComponent,
+    ContactCardComponent,
   ]
 })
 export class PagesModule { }
