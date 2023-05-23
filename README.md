@@ -1,5 +1,14 @@
 # Messenger
 
+### This project is an implementation of a simple messenger which anyone can use with their own backend.
+ 
+- It is currently under development.
+- Development is in the dev branch.
+- The link for the backend repository will be added later. 
+
+___
+___
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.2.
 
 ## Development server
