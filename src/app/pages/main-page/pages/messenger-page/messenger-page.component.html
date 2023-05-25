@@ -1,6 +1,9 @@
 <div class="flex flex-col w-full h-full">
   <div class="flex flex-col flex-grow">
     <app-message></app-message>
+    <ng-container *ngFor="let message of $messages | async">
+      <app-message [message]="message.message"></app-message>
+    </ng-container>
     <ng-template adHost></ng-template>
   </div>
 

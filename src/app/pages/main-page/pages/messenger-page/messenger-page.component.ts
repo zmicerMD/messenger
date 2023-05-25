@@ -2,6 +2,9 @@ import { Component, Renderer2, ViewChild } from '@angular/core';
 import { FormControl, FormGroup } from "@angular/forms";
 import { AdDirective } from "../../../../directives/ad.directive";
 import { MessageComponent } from "../../../../standalone/message/message.component";
+import { MessageService } from '../../../../services/message.service';
+import { ILastMessage } from '../../../../models/interfaces/last-message';
+import { Observable } from 'rxjs';
 
 
 export interface AdComponent {
@@ -16,12 +19,17 @@ export interface AdComponent {
 export class MessengerPageComponent {
   @ViewChild(AdDirective, { static: true }) adHost!: AdDirective;
 
+  $messages: Observable<ILastMessage[]> =this._messageService.$shownMessages;
+
   messageForm = new FormGroup({
       text: new FormControl('')
     }
   );
 
-  constructor(private _renderer2: Renderer2) {
+  constructor(
+    private _renderer2: Renderer2,
+    private _messageService: MessageService
+  ) {
   }
 
 
